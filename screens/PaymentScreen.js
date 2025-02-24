@@ -1,4 +1,4 @@
-import React from 'react';
+oimport React from 'react';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
@@ -42,7 +42,7 @@ const PaymentScreen = () => {
     }
 
     // Validate coupon
-    const response = await axios.post("http://api.foodliie.com/api/auth/validate-coupon", { userId });
+    const response = await axios.post("https://api.foodliie.com/api/auth/validate-coupon", { userId });
 
     // Log full API response
     console.log("API Response:", response.data);
