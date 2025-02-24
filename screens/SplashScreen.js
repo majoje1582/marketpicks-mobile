@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 34,
         fontWeight: 'bold',
-        color: '#FF7E00', // Customize the text color
+        color: '#2D7B30', // Customize the text color
     },
 });
 
