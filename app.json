@@ -4,11 +4,11 @@
     "slug": "MarketPicks",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/android icon.jpg",
+    "icon": "./assets/android-icon.jpg",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/android icon.jpg",
+      "image": "./assets/android-icon.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/android icon.jpg",
+        "foregroundImage": "./assets/android-icon.jpg",
         "backgroundColor": "#ffffff"
       }
     },
