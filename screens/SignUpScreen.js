@@ -74,6 +74,10 @@ const SignupScreen = ({ navigation }) => {
         value={password}
         onChangeText={setPassword}
       />
+                {/* Forgot Password Link */}
+      <TouchableOpacity onPress={() => navigation.navigate('ResetPassword')}>
+        <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+      </TouchableOpacity>
 
       {/* Signup Button */}
       <TouchableOpacity style={styles.button} onPress={handleSignup} disabled={isLoading}>
@@ -128,6 +132,12 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     marginBottom: 20,
+  },
+  forgotPasswordText: {
+    color: '#FF7E00',
+    fontSize: 14,
+    alignSelf: 'flex-end',
+    marginBottom: 15,
   },
   buttonText: {
     color: '#FFFFFF',
