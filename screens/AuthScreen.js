@@ -4,15 +4,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import { AuthContext } from '../contexts/AuthContext'; // Import the AuthContext
 
-const AuthScreen = ({navigation}) => {
-  //const navigation = useNavigation();
+const AuthScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const { login } = useContext(AuthContext); // Access the login function from the AuthContext
-
- 
 
   const handleLogin = async () => {
     setIsLoading(true); // Show loader
@@ -33,9 +30,7 @@ const AuthScreen = ({navigation}) => {
       Alert.alert('Login successful!', `Welcome ${user.name}`);
       setIsLoading(false); // Hide loader
       login();
-      
 
-      //navigation.replace('Main'); // Navigate to Home or another screen after auth
     } catch (error) {
       setIsLoading(false); // Hide loader
       console.error(error);
@@ -69,6 +64,11 @@ const AuthScreen = ({navigation}) => {
         value={password}
         onChangeText={setPassword}
       />
+
+      {/* Forgot Password Link */}
+      <TouchableOpacity onPress={() => navigation.navigate('ResetPassword')}>
+        <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+      </TouchableOpacity>
 
       {/* Login Button */}
       <TouchableOpacity style={styles.button} onPress={handleLogin} disabled={isLoading}>
@@ -115,6 +115,12 @@ const styles = StyleSheet.create({
     borderRadius: 25, // Rounded corners
     marginBottom: 20,
     color: '#2D7B30',
+  },
+  forgotPasswordText: {
+    color: '#FF7E00',
+    fontSize: 14,
+    alignSelf: 'flex-end',
+    marginBottom: 15,
   },
   button: {
     backgroundColor: '#FF7E00',
