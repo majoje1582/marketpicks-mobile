@@ -38,6 +38,9 @@ const SignupScreen = ({ navigation }) => {
       Alert.alert('Signup failed', error.response?.data?.message || 'Something went wrong');
     }
   };
+  const handleGoogleLogin = () => {
+  navigation.navigate('GoogleLoginScreen');
+};
 
   return (
     <View style={styles.container}>
@@ -86,6 +89,11 @@ const SignupScreen = ({ navigation }) => {
         ) : (
           <Text style={styles.buttonText}>Sign Up</Text>
         )}
+      </TouchableOpacity>
+        {/* Google Login Button */}
+      <TouchableOpacity style={styles.googleButton} onPress={handleGoogleLogin}>
+        <Image source={require('../assets/google-icon.png')} style={styles.googleIcon} />
+        <Text style={styles.googleButtonText}>Login with Google</Text>
       </TouchableOpacity>
 
       {/* Navigate to Login */}
