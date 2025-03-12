@@ -4,30 +4,24 @@ import axios from 'axios';
 
 const ResetPasswordScreen = ({ navigation }) => {
   const [token, setToken] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleResetPassword = async () => {
-    if (!token || !password || !confirmPassword) {
-      Alert.alert('Error', 'All fields are required.');
-      return;
-    }
+    
 
-    if (password !== confirmPassword) {
-      Alert.alert('Error', 'Passwords do not match.');
-      return;
-    }
+    
 
     setIsLoading(true);
 
     try {
-      const endpoint = 'https://api.foodliie.com/api/auth/reset-password';
-      const payload = { token, password };
+      const endpoint = 'https://api.foodliie.com/api/auth/request-password-reset;
+      const payload = { email };
 
       await axios.post(endpoint, payload);
 
-      Alert.alert('Success', 'Password reset successful! You can now log in.');
+      Alert.alert('Success', 'Password reset requestef! check your email.');
       navigation.navigate('AuthScreen'); // Navigate back to login
     } catch (error) {
       console.error(error);
@@ -42,33 +36,18 @@ const ResetPasswordScreen = ({ navigation }) => {
       <Text style={styles.heading}>Reset Password</Text>
 
       {/* Token Input */}
-      <TextInput
-        style={styles.input}
-        placeholder="Enter reset token"
-        placeholderTextColor="#999"
-        value={token}
-        onChangeText={setToken}
-      />
-
+      
       {/* New Password Input */}
       <TextInput
         style={styles.input}
-        placeholder="Enter new password"
+        placeholder="Enter Email"
         placeholderTextColor="#999"
         secureTextEntry
-        value={password}
-        onChangeText={setPassword}
+        value={email}
+        onChangeText={setEmail}
       />
 
-      {/* Confirm Password Input */}
-      <TextInput
-        style={styles.input}
-        placeholder="Confirm new password"
-        placeholderTextColor="#999"
-        secureTextEntry
-        value={confirmPassword}
-        onChangeText={setConfirmPassword}
-      />
+          
 
       {/* Reset Button */}
       <TouchableOpacity style={styles.button} onPress={handleResetPassword} disabled={isLoading}>
