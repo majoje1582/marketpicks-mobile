@@ -16,7 +16,7 @@ const ResetPasswordScreen = ({ navigation }) => {
     setIsLoading(true);
 
     try {
-      const endpoint = 'https://api.foodliie.com/api/auth/request-password-reset;
+      const endpoint = 'https://api.foodliie.com/api/auth/request-password-reset';
       const payload = { email };
 
       await axios.post(endpoint, payload);
